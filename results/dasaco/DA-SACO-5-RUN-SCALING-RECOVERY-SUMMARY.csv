@@ -1,0 +1,6 @@
+run,functions_observed,functions_scaled,functions_recovered,functions_not_recovered,run_recovered_by_recovery_end,first_scale_out_from_start_seconds,median_ready_after_scale_seconds,overall_recovery_after_workload_seconds,mean_function_recovery_after_workload_seconds,invalid_replica_rows,replica_file,window_file
+R1,7,4,4,0,true,50.0,14.0,22.0,13.25,0,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R1/replica-timeseries.csv,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R1/run-window.txt
+R2,7,1,1,0,true,53.0,11.0,13.0,13.0,0,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R2/replica-timeseries.csv,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R2/run-window.txt
+R3,7,4,4,0,true,72.0,12.5,37.0,26.25,0,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R3/replica-timeseries.csv,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R3/run-window.txt
+R4,7,4,4,0,true,56.0,15.0,26.0,17.75,0,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R4/replica-timeseries.csv,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R4/run-window.txt
+R5,7,3,3,0,true,56.0,10.0,24.0,16.333333333333332,0,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R5/replica-timeseries.csv,<LOCAL_HOME>/DA-SACO-1000-BURST/DA-SACO-1000UE-120MS/R5/run-window.txt

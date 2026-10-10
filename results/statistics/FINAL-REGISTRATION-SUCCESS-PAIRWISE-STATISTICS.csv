@@ -1,0 +1,5 @@
+comparison,comparator,dasaco_mean_percent,comparator_mean_percent,mean_difference_percentage_points,mann_whitney_u,p_value_raw,p_value_holm,cliffs_delta,effect_magnitude,significant_after_holm_0_05
+DA-SACO vs Static,B0,76.30,50.22,26.08,22.0,0.055555556,0.166666667,0.76,large,false
+DA-SACO vs AMF-HPA,B1,76.30,56.58,19.72,15.0,0.690476190,0.690476190,0.20,small,false
+DA-SACO vs Open5GLoS,B2,76.30,85.58,-9.28,7.0,0.309523810,0.619047619,-0.44,medium,false
+DA-SACO vs Admission-only,B3,76.30,45.62,30.68,25.0,0.007936508,0.031746032,1.00,large,true

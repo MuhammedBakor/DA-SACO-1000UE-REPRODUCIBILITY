@@ -1,0 +1,14 @@
+*.log
+*.pid
+*.pcap
+*.pcapng
+*.tar
+*.tar.gz
+*.zip
+__pycache__/
+*.pyc
+.env
+secrets/
+raw-evidence/
+
+SECURITY-REVIEW.txt

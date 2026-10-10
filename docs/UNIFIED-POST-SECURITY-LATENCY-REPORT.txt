@@ -1,0 +1,47 @@
+===== WINDOW-FILTERED POST-SECURITY LATENCY =====
+START_EVENT=Handle InitialRegistration
+END_EVENT=Handle Registration Complete
+NOT_END_TO_END_LATENCY=true
+PERCENTILE_METHOD=HYNDMAN_FAN_TYPE_7
+RUNS_ANALYZED=25
+METHODS_ANALYZED=5
+PER_UE_ROWS=15421
+SOURCE_EXPERIMENT_FILES_MODIFIED=false
+
+RUN=B0|Static|R1|completed=476|valid=364|coverage=76.471|mean_ms=17084.978|median_ms=18417.395|p95_ms=28346.246|p99_ms=29536.793|max_ms=30172.044
+RUN=B0|Static|R2|completed=536|valid=529|coverage=98.694|mean_ms=1333.692|median_ms=965.238|p95_ms=4084.328|p99_ms=5343.937|max_ms=5995.546
+RUN=B0|Static|R3|completed=302|valid=299|coverage=99.007|mean_ms=302.566|median_ms=191.715|p95_ms=760.754|p99_ms=1739.948|max_ms=4919.950
+RUN=B0|Static|R4|completed=716|valid=712|coverage=99.441|mean_ms=662.554|median_ms=533.898|p95_ms=1908.431|p99_ms=2681.239|max_ms=3883.969
+RUN=B0|Static|R5|completed=481|valid=475|coverage=98.753|mean_ms=366.711|median_ms=304.867|p95_ms=786.273|p99_ms=1103.274|max_ms=1635.880
+RUN=B1|AMF-HPA|R1-valid|completed=309|valid=239|coverage=77.346|mean_ms=15933.694|median_ms=16841.804|p95_ms=29582.821|p99_ms=30162.313|max_ms=30658.607
+RUN=B1|AMF-HPA|R2|completed=381|valid=327|coverage=85.827|mean_ms=6760.894|median_ms=5195.369|p95_ms=17781.005|p99_ms=21437.431|max_ms=22367.524
+RUN=B1|AMF-HPA|R3|completed=196|valid=175|coverage=89.286|mean_ms=2155.046|median_ms=1607.692|p95_ms=8581.984|p99_ms=9305.741|max_ms=9559.637
+RUN=B1|AMF-HPA|R4|completed=995|valid=995|coverage=100.000|mean_ms=1056.004|median_ms=841.472|p95_ms=2561.680|p99_ms=3267.078|max_ms=4068.912
+RUN=B1|AMF-HPA|R5|completed=948|valid=946|coverage=99.789|mean_ms=1977.655|median_ms=1096.883|p95_ms=7375.982|p99_ms=10892.012|max_ms=12271.396
+RUN=B2|Open5GLoS|R1|completed=923|valid=923|coverage=100.000|mean_ms=12001.413|median_ms=10209.109|p95_ms=28116.420|p99_ms=30835.367|max_ms=31812.348
+RUN=B2|Open5GLoS|R2|completed=994|valid=994|coverage=100.000|mean_ms=3757.417|median_ms=1966.066|p95_ms=11928.176|p99_ms=17203.443|max_ms=19262.780
+RUN=B2|Open5GLoS|R3|completed=378|valid=363|coverage=96.032|mean_ms=655.454|median_ms=510.415|p95_ms=1422.646|p99_ms=3175.496|max_ms=4881.111
+RUN=B2|Open5GLoS|R4-valid|completed=992|valid=992|coverage=100.000|mean_ms=720.393|median_ms=491.712|p95_ms=2075.446|p99_ms=3764.116|max_ms=6663.382
+RUN=B2|Open5GLoS|R5|completed=992|valid=992|coverage=100.000|mean_ms=509.735|median_ms=380.000|p95_ms=1425.302|p99_ms=2225.568|max_ms=4873.478
+RUN=B3|Admission-only|R1|completed=482|valid=482|coverage=100.000|mean_ms=9769.783|median_ms=7356.496|p95_ms=24121.929|p99_ms=28532.359|max_ms=29937.625
+RUN=B3|Admission-only|R2|completed=318|valid=318|coverage=100.000|mean_ms=11539.116|median_ms=9010.509|p95_ms=26314.196|p99_ms=29332.683|max_ms=32618.583
+RUN=B3|Admission-only|R3|completed=492|valid=492|coverage=100.000|mean_ms=9911.776|median_ms=8194.960|p95_ms=24168.438|p99_ms=29534.486|max_ms=29967.215
+RUN=B3|Admission-only|R4|completed=501|valid=501|coverage=100.000|mean_ms=9392.351|median_ms=7640.588|p95_ms=23050.074|p99_ms=28299.665|max_ms=30230.075
+RUN=B3|Admission-only|R5|completed=488|valid=488|coverage=100.000|mean_ms=9445.278|median_ms=7854.962|p95_ms=23049.106|p99_ms=28047.528|max_ms=29785.145
+RUN=R1|DA-SACO|R1|completed=558|valid=558|coverage=100.000|mean_ms=1398.731|median_ms=366.695|p95_ms=7180.683|p99_ms=9922.189|max_ms=13682.360
+RUN=R1|DA-SACO|R2|completed=509|valid=509|coverage=100.000|mean_ms=15529.883|median_ms=14404.522|p95_ms=30073.536|p99_ms=32456.861|max_ms=35969.397
+RUN=R1|DA-SACO|R3|completed=924|valid=924|coverage=100.000|mean_ms=8549.994|median_ms=4336.744|p95_ms=26509.060|p99_ms=29963.527|max_ms=35104.293
+RUN=R1|DA-SACO|R4|completed=880|valid=880|coverage=100.000|mean_ms=7012.893|median_ms=2316.436|p95_ms=24237.032|p99_ms=28159.324|max_ms=31563.517
+RUN=R1|DA-SACO|R5|completed=944|valid=944|coverage=100.000|mean_ms=7029.864|median_ms=4016.176|p95_ms=23653.946|p99_ms=29531.107|max_ms=32669.393
+
+METHOD=B0|Static|runs=5|valid=2379|coverage=94.473|mean_of_means_ms=3950.100|mean_of_medians_ms=4082.623|mean_p95_ms=7177.206|mean_p99_ms=8081.038|max_ms=30172.044
+METHOD=B1|AMF-HPA|runs=5|valid=2682|coverage=90.450|mean_of_means_ms=5576.659|mean_of_medians_ms=5116.644|mean_p95_ms=13176.695|mean_p99_ms=15012.915|max_ms=30658.607
+METHOD=B2|Open5GLoS|runs=5|valid=4264|coverage=99.206|mean_of_means_ms=3528.882|mean_of_medians_ms=2711.460|mean_p95_ms=8993.598|mean_p99_ms=11440.798|max_ms=31812.348
+METHOD=B3|Admission-only|runs=5|valid=2281|coverage=100.000|mean_of_means_ms=10011.661|mean_of_medians_ms=8011.503|mean_p95_ms=24140.749|mean_p99_ms=28749.344|max_ms=32618.583
+METHOD=R1|DA-SACO|runs=5|valid=3815|coverage=100.000|mean_of_means_ms=7904.273|mean_of_medians_ms=5088.114|mean_p95_ms=22330.851|mean_p99_ms=26006.602|max_ms=35969.397
+
+WINDOWED_LATENCY_GATE=PASS
+NEXT_ACTION=VALIDATE_B3_AND_RUN_INTEGRATED_STATISTICS
+DETAIL=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-25-RUN-POST-SECURITY-LATENCY-DETAIL.csv
+RUN_SUMMARY=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-25-RUN-POST-SECURITY-LATENCY-SUMMARY.csv
+METHOD_SUMMARY=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-5-METHOD-POST-SECURITY-LATENCY-SUMMARY.csv

@@ -1,0 +1,19 @@
+===== ALL-METHODS EXCLUSIVE FAILURE CLASSIFICATION =====
+RUNS_CLASSIFIED=25
+METHODS_CLASSIFIED=5
+CLASSIFICATION_INPUT=CANONICAL_AMF_AND_RECONCILED_FAILED_SUPIS
+SOURCE_EXPERIMENT_FILES_MODIFIED=false
+
+===== METHOD RESULTS =====
+METHOD=B0|Static|not_completed=2489|explicit_reject=1|authentication_reject=0|dependency_failure=2|security_mode_timeout=4|registration_accept_timeout=0|wrong_security_header=0|state_mismatch=110|unclassified=2372
+METHOD=B1|AMF-HPA|not_completed=2171|explicit_reject=5|authentication_reject=0|dependency_failure=0|security_mode_timeout=48|registration_accept_timeout=9|wrong_security_header=0|state_mismatch=97|unclassified=2012
+METHOD=B2|Open5GLoS|not_completed=721|explicit_reject=9|authentication_reject=0|dependency_failure=0|security_mode_timeout=53|registration_accept_timeout=2|wrong_security_header=0|state_mismatch=2|unclassified=655
+METHOD=B3|Admission-only|not_completed=2719|explicit_reject=32|authentication_reject=0|dependency_failure=1|security_mode_timeout=1979|registration_accept_timeout=0|wrong_security_header=0|state_mismatch=5|unclassified=702
+METHOD=R1|DA-SACO|not_completed=1185|explicit_reject=33|authentication_reject=0|dependency_failure=6|security_mode_timeout=495|registration_accept_timeout=0|wrong_security_header=7|state_mismatch=4|unclassified=640
+
+EXCLUSIVE_FAILURE_CLASSIFICATION_GATE=PASS
+NEXT_ACTION=FINAL_STATISTICAL_COMPARISON
+SOURCE_EXPERIMENT_FILES_MODIFIED=false
+RUN_RESULTS=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-25-RUN-EXCLUSIVE-FAILURE-CAUSES.csv
+METHOD_RESULTS=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-5-METHOD-EXCLUSIVE-FAILURE-CAUSES.csv
+REPORT=<LOCAL_HOME>/PREVIOUS-VM-EVIDENCE/UNIFIED-25-RUN-ANALYSIS/UNIFIED-EXCLUSIVE-FAILURE-CLASSIFICATION.txt

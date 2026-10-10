@@ -1,0 +1,9 @@
+metric,comparison,mann_whitney_u,p_value_raw,p_value_holm,cliffs_delta,effect_magnitude,significant_after_holm_0_05
+run_mean_latency,DA-SACO vs Static,20.0,0.150793651,0.603174603,0.60,large,false
+run_mean_latency,DA-SACO vs AMF-HPA,17.0,0.420634921,0.603174603,0.36,medium,false
+run_mean_latency,DA-SACO vs Open5GLoS,20.0,0.150793651,0.603174603,0.60,large,false
+run_mean_latency,DA-SACO vs Admission-only,5.0,0.150793651,0.603174603,-0.60,large,false
+run_p95_latency,DA-SACO vs Static,21.0,0.095238095,0.380952381,0.68,large,false
+run_p95_latency,DA-SACO vs AMF-HPA,18.0,0.309523810,0.619047619,0.44,medium,false
+run_p95_latency,DA-SACO vs Open5GLoS,20.0,0.150793651,0.452380952,0.60,large,false
+run_p95_latency,DA-SACO vs Admission-only,16.0,0.547619048,0.619047619,0.28,small,false
