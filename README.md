@@ -25,3 +25,46 @@ Latency is measured from Handle InitialRegistration to Handle Registration Compl
 ## Integrity
 
 Source experiment files were analyzed in read-only mode. Excluded and historical attempt directories are not treated as authoritative runs.
+
+## Reproduction Documentation
+
+Read the documentation in this order:
+
+1. `docs/EXPERIMENT-DESIGN.md`
+2. `docs/CURRENT-ENVIRONMENT-SPECIFICATIONS.md`
+3. `docs/ENVIRONMENT-AND-DEPENDENCIES.md`
+4. `docs/METHOD-CONFIGURATIONS.md`
+5. `docs/EXPERIMENT-EXECUTION-RECORD.md`
+6. `docs/REPRODUCTION-GUIDE.md`
+7. `docs/ANALYSIS-PIPELINE.md`
+8. `docs/RESULTS-GUIDE.md`
+9. `docs/EVIDENCE-PROVENANCE.md`
+10. `docs/KNOWN-ISSUES-AND-EXCLUSIONS.md`
+
+## Reference Software Revisions
+
+- DA-SACO repository commit: `7868d1d483a69ca8727e588b3182e1cd8ed074e4`
+- PacketRusher commit: `194ae987ee2bacfae2cf57d435b475e54076679e`
+- free5GC Helm commit: `6f67ec11512e8c6b4eb6b3237f46e71fec5bdda2`
+- Open5GLoS commit: `55994ae45ac66e00722460fad4902a481dac6f68`
+- free5GC network-function images: `v4.2.3`
+
+## Related Earlier Repositories
+
+- DA-SACO earlier research package:
+  `https://github.com/MuhammedBakor/dasaco-research.git`
+- Earlier Open5GLoS and DA-SACO package:
+  `https://github.com/MuhammedBakor/open5glos-dasaco.git`
+
+The earlier repositories preserve continuity with the previous 100-UE
+work. This repository documents the unified 25-run, 1000-UE evaluation.
+
+## Important Interpretation Notes
+
+- DA-SACO achieved a 93.75% useful scale-out rate.
+- All DA-SACO scaled functions recovered to baseline.
+- DA-SACO reduced aggregate AMF CPU P95 relative to AMF-HPA and Open5GLoS.
+- DA-SACO recorded the highest aggregate AMF memory P95.
+- DA-SACO also recorded the highest MongoDB memory P95.
+- The reported latency is post-security registration-completion latency,
+  not end-to-end registration latency.
