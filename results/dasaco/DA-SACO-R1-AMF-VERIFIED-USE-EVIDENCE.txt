@@ -1,0 +1,14 @@
+===== R1 AMF VERIFIED USE EVIDENCE =====
+RUN_START_UTC=2026-10-09T15:52:28Z
+WORKLOAD_END_UTC=2026-10-09T15:57:35Z
+
+ORIGINAL_AMF_POD=free5gc-free5gc-amf-amf-79f76b87f7-tzkpx
+NEW_AMF_POD=free5gc-free5gc-amf-amf-79f76b87f7-cpshr
+NEW_AMF_REQUEST_EVENTS=314
+NEW_AMF_UNIQUE_SUPIS=150
+NEW_AMF_USED=true
+CAPACITY_USE_CLASSIFICATION=CAPACITY_USE_VERIFIED
+
+COMPLETE_PER_AMF_COMPLETION_SPLIT_AVAILABLE=false
+FAIRNESS_COMPARISON_INCLUDED=false
+INTERPRETATION=R1 verifies that the additional AMF processed measured workload, but does not support a complete per-AMF fairness or completion-efficiency comparison.
