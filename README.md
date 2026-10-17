@@ -68,3 +68,14 @@ work. This repository documents the unified 25-run, 1000-UE evaluation.
 - DA-SACO also recorded the highest MongoDB memory P95.
 - The reported latency is post-security registration-completion latency,
   not end-to-end registration latency.
+
+## DA-SACO Controller Source
+
+The evaluated DA-SACO controller source and configuration artifacts are
+included in the [`controller`](controller) directory. Analysis and
+evidence-extraction programs remain separately available in
+[`scripts`](scripts).
+
+The controller package excludes credentials, kubeconfig files,
+operational logs, raw subscriber evidence, runtime secrets, and
+environment-specific private material.
