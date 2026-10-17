@@ -1,13 +1,13 @@
-# DA-SACO 1000-UE Reproducibility Package
+<img width="4032" height="313" alt="image" src="https://github.com/user-attachments/assets/842d5c6f-38d0-432f-bb3e-7343c0b53ebc" /><img width="4032" height="313" alt="image" src="https://github.com/user-attachments/assets/d677b742-9989-4f5e-8823-7817511822ca" /><img width="4032" height="313" alt="image" src="https://github.com/user-attachments/assets/5ff7a2ae-e777-4f01-b6f6-9134d999090f" /># DA-SACO 1000-UE Reproducibility Package
 
-This private repository package contains derived results and reproducible analysis scripts for five methods: Static, AMF-HPA, Open5GLoS, Admission-only, and DA-SACO.
+This public reproducibility package contains derived results, experiment manifests, documentation, and reproducible analysis scripts for five methods: Static, AMF-HPA, Open5GLoS, Admission-only, and DA-SACO.
 
 ## Experiment Scope
 
 - Five runs per method
 - 1000 UEs per run
 - 120 ms inter-UE launch interval
-- 25 canonical runs
+- 25 accepted runs
 
 ## Main Results
 
