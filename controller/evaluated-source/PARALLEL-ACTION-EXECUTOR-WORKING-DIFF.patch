@@ -1,0 +1,225 @@
+diff --git a/dasaco-controller/parallel_action_executor.py b/dasaco-controller/parallel_action_executor.py
+index 5c82832..63aaf8c 100644
+--- a/dasaco-controller/parallel_action_executor.py
++++ b/dasaco-controller/parallel_action_executor.py
+@@ -327,45 +327,185 @@ def execute_parallel_plan(plan):
+ 
+     results = []
+ 
+-    with ThreadPoolExecutor(
+-        max_workers=len(candidates)
+-    ) as executor:
+-        futures = {
+-            executor.submit(
+-                scale_and_verify,
+-                item["function"],
+-                item["original_replicas"],
+-                item["target_replicas"],
+-            ): item["function"]
++    stage_members = (
++        ("DEPENDENCY_NFS", {"ausf", "udm", "udr", "pcf"}),
++        ("AMF", {"amf"}),
++        ("OPEN5GLOS", {"open5glos"}),
++    )
++
++    assigned_functions = set().union(
++        *(members for _, members in stage_members)
++    )
++
++    stages = [
++        (
++            stage_name,
++            [
++                item
++                for item in candidates
++                if item["function"] in members
++            ],
++        )
++        for stage_name, members in stage_members
++    ]
++
++    stages.append((
++        "OTHER_NFS",
++        [
++            item
+             for item in candidates
+-        }
++            if item["function"] not in assigned_functions
++        ],
++    ))
+ 
+-        for future in as_completed(futures):
+-            result = future.result()
+-            results.append(result)
++    earlier_stage_failed = False
++    failed_stage = None
+ 
+-            name = result["function"]
+-            state["actions"][name]["phase"] = result["phase"]
+-            state["actions"][name]["last_error"] = result.get(
+-                "error"
+-            )
+-            base.write_state(state)
++    for stage_name, stage_candidates in stages:
++        if not stage_candidates:
++            continue
+ 
+-            base.append_action_event({
+-                "timestamp": timestamp(),
+-                "phase": result["phase"],
+-                "target_function": name,
+-                "original_replicas":
+-                    result["original_replicas"],
+-                "target_replicas":
+-                    result["target_replicas"],
+-                "success": result["success"],
+-                "error": result.get("error"),
+-                "rollback_error":
+-                    result.get("rollback_error"),
+-                "verification":
+-                    result.get("verification"),
+-            })
++        if earlier_stage_failed:
++            for item in stage_candidates:
++                result = {
++                    "function": item["function"],
++                    "phase": "BLOCKED_DEPENDENCY",
++                    "original_replicas":
++                        item["original_replicas"],
++                    "target_replicas":
++                        item["target_replicas"],
++                    "started_at": None,
++                    "finished_at": timestamp(),
++                    "success": False,
++                    "verification": None,
++                    "error": (
++                        "Blocked because an earlier scaling "
++                        f"stage failed: {failed_stage}"
++                    ),
++                    "rollback_error": None,
++                    "stage": stage_name,
++                }
++                results.append(result)
++
++                name = result["function"]
++                state["actions"][name]["phase"] = (
++                    result["phase"]
++                )
++                state["actions"][name]["last_error"] = (
++                    result["error"]
++                )
++                state["actions"][name]["stage"] = stage_name
++                base.write_state(state)
++
++                base.append_action_event({
++                    "timestamp": timestamp(),
++                    "phase": result["phase"],
++                    "stage": stage_name,
++                    "target_function": name,
++                    "original_replicas":
++                        result["original_replicas"],
++                    "target_replicas":
++                        result["target_replicas"],
++                    "success": False,
++                    "error": result["error"],
++                    "rollback_error": None,
++                    "verification": None,
++                })
++
++            continue
++
++        state["current_stage"] = stage_name
++        state["stage_functions"] = sorted(
++            item["function"]
++            for item in stage_candidates
++        )
++        base.write_state(state)
++
++        base.append_action_event({
++            "timestamp": timestamp(),
++            "phase": "PARALLEL_STAGE_STARTED",
++            "stage": stage_name,
++            "functions": state["stage_functions"],
++        })
++
++        stage_results = []
++
++        with ThreadPoolExecutor(
++            max_workers=len(stage_candidates)
++        ) as executor:
++            futures = {
++                executor.submit(
++                    scale_and_verify,
++                    item["function"],
++                    item["original_replicas"],
++                    item["target_replicas"],
++                ): item["function"]
++                for item in stage_candidates
++            }
++
++            for future in as_completed(futures):
++                result = future.result()
++                result["stage"] = stage_name
++                stage_results.append(result)
++                results.append(result)
++
++                name = result["function"]
++                state["actions"][name]["phase"] = (
++                    result["phase"]
++                )
++                state["actions"][name]["last_error"] = (
++                    result.get("error")
++                )
++                state["actions"][name]["stage"] = stage_name
++                base.write_state(state)
++
++                base.append_action_event({
++                    "timestamp": timestamp(),
++                    "phase": result["phase"],
++                    "stage": stage_name,
++                    "target_function": name,
++                    "original_replicas":
++                        result["original_replicas"],
++                    "target_replicas":
++                        result["target_replicas"],
++                    "success": result["success"],
++                    "error": result.get("error"),
++                    "rollback_error":
++                        result.get("rollback_error"),
++                    "verification":
++                        result.get("verification"),
++                })
++
++        stage_failed_functions = sorted(
++            result["function"]
++            for result in stage_results
++            if not result["success"]
++        )
++
++        if stage_failed_functions:
++            earlier_stage_failed = True
++            failed_stage = stage_name
++            stage_phase = "PARALLEL_STAGE_FAILED"
++        else:
++            stage_phase = "PARALLEL_STAGE_VERIFIED"
++
++        state["last_completed_stage"] = stage_name
++        state["last_stage_phase"] = stage_phase
++        state["last_stage_failed_functions"] = (
++            stage_failed_functions
++        )
++        base.write_state(state)
++
++        base.append_action_event({
++            "timestamp": timestamp(),
++            "phase": stage_phase,
++            "stage": stage_name,
++            "functions": sorted(
++                result["function"]
++                for result in stage_results
++            ),
++            "failed_functions": stage_failed_functions,
++        })
+ 
+     verified = [
+         item["function"]
